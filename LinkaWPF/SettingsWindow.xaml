@@ -70,15 +70,9 @@
             <CheckBox x:Name="isAnimatedClickEnabledCheckBox" Content="Нажатие взглядом с задержкой"/>
             <CheckBox x:Name="isPlayAudioFromCardCheckBox" Content="Воспроизводить аудио с карточки при нажатии"/>
             <CheckBox x:Name="isPageButtonVisibleCheckBox" Content="Показывать кнопки перемотки страниц"/>
-            <CheckBox x:Name="isJoystickEnabledCheckBox" Content="Включить управление с помощью джойстика"/>
             <CheckBox x:Name="isKeyboardEnabledCheckBox" Content="Включить управление с помощью клавиатуры"/>
             <CheckBox x:Name="isMouseEnabledCheckBox" Content="Включить управление с помощью мыши"/>
             <CheckBox x:Name="isOutputTypeCheckBox" Content="Включить вывод в другие програмы"/>
-         <StackPanel>
-                <TextBlock>Чувствительность кликмыши</TextBlock>
-
-                <Slider  Minimum="10" Maximum="70"  Value="{Binding MousePointReactionFilter}" ValueChanged="Slider_ValueChanged"/>
-            </StackPanel>
 
             <StackPanel>
                 <TextBox>Настройки голоса;</TextBox>

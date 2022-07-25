@@ -42,7 +42,6 @@ namespace LinkaWPF
 
         public MainWindow(Settings settings)
         {
-            // StaticServer.instance.ReportEvent("startupApp") ;
             inputSimulator = new InputSimulator();
             InitializeComponent();
 
@@ -105,7 +104,6 @@ namespace LinkaWPF
         {
             string action;
             if (Settings.Keys.TryGetValue(keyName, out action) == false) return;
-            StaticServer.instance.ReportEvent("MoveCursor", new Dictionary<string, string> { { "action", action } });
 
             switch (action)
             {
@@ -181,9 +179,7 @@ namespace LinkaWPF
         private void pressCardButton(CardButton cardButton)
         {
             if (cardButton.Card == null) return;
-            
-            StaticServer.instance.ReportEvent("CardSelected") ;
-          
+       
             if (_settings.IsPlayAudioFromCard == true)
             {
                 var cards = new List<Card>();
@@ -286,8 +282,6 @@ namespace LinkaWPF
 
         private void pronounceWordsButton_Click(object sender, RoutedEventArgs e)
         {
-            StaticServer.instance.ReportEvent("Pronounce");
-
             if (WithoutSpace == true)
             {
                 _player.Play(text.Text);
@@ -302,10 +296,6 @@ namespace LinkaWPF
         {
             overflowGrid.Visibility = Visibility.Hidden;
 
-            StaticServer.instance.ReportEvent("LoadCardSet", new Dictionary<string, string>
-            {
-                {"path", path }
-            });
             try
             {
                 var destPath = _tempDirPath + Guid.NewGuid() + "\\";
@@ -358,8 +348,6 @@ namespace LinkaWPF
 
         private void OpenSettings_Click(object sender, RoutedEventArgs e)
         {
-            StaticServer.instance.ReportEvent("OpenSettings");
-
             var settingsWindow = new SettingsWindow(Settings);
             settingsWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             settingsWindow.Owner = this;
@@ -370,8 +358,6 @@ namespace LinkaWPF
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            StaticServer.instance.ReportEvent("Exit");
-
             Close();
         }
 
