@@ -11,10 +11,10 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="64"/>
             </Grid.RowDefinitions>
             <Image Grid.Row="0" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="{Binding Card.ImagePath, ElementName=userControl}"/>
-            <TextBlock x:Name="text" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Card.Title, ElementName=userControl}"/>
+            <TextBlock x:Name="text" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Card.Title, ElementName=userControl}" FontFamily="Arial Black" FontWeight="Bold" FontSize="36"/>
         </Grid>
     </Border>
 </local:AnimatedButton>
