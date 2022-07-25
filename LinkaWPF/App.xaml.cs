@@ -16,10 +16,6 @@ namespace LinkaWPF
 {
     class Options
     {
-        [Option('e', "editor", Required = false,
-            HelpText = "If you need to open the editor, set this parameter.")]
-        public bool IsEditor { get; set; }
-
         [Option('p', "path", Default = null,
             HelpText = "If you need to open cardset from file, set this parametr.")]
         public string Path { get; set; }
@@ -32,7 +28,6 @@ namespace LinkaWPF
     {
         private Host _host;
         private WpfInteractorAgent _agent;
-        private bool _isEditor = false;
         private string _path = null;
         private Settings _settings;
         private string _tempDirPath;
@@ -41,13 +36,10 @@ namespace LinkaWPF
         protected override void OnStartup(StartupEventArgs e)
         {
 
-            StaticServer.instance.CheckUpdateAsync();
-
             var options = new Options();
             Parser.Default.ParseArguments<Options>(e.Args)
                 .WithParsed<Options>(o =>
                 {
-                    if (o.IsEditor) _isEditor = o.IsEditor;
                     if (o.Path != null) _path = o.Path;
                 });
 
@@ -92,7 +84,6 @@ namespace LinkaWPF
                 _settings.ClickDelay = 1;
                 _settings.IsPlayAudioFromCard = false;
                 _settings.IsPageButtonVisible = true;
-                _settings.IsJoystickEnabled = true;
                 _settings.IsKeyboardEnabled = true;
                 _settings.IsMouseEnabled = true;
                 _settings.IsOutputType = false;
@@ -108,40 +99,9 @@ namespace LinkaWPF
             
             _settings.Host = _host;
 
-            if (_isEditor == true)
-            {
-                ShowEditorWindow(_path);
-            }
-            else
-            {
-                ShowMainWindow(_path);
-            }
+            ShowMainWindow(_path);
 
             // TODO: Заменить на загрузку из конфига
-        }
-
-        private void ShowEditorWindow(string path)
-        {
-            // Создаем окно редактора
-            var editorWindow = new EditorWindow(_settings, _tempDirPath, _yandexSpeech);
-            editorWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            // Функция смены режима работы программы
-            editorWindow.ChangeMode = () =>
-            {
-                if (editorWindow.IsSave() == false) return false;
-
-                // Открываем окно пользователя
-                ShowMainWindow(editorWindow.CurrentFileName);
-
-                // Закрываем окно редактора
-                editorWindow.Close();
-
-                return true;
-            };
-
-            if (path != null && path != string.Empty) editorWindow.LoadCardSet(path);
-
-            editorWindow.Show();
         }
 
         private void ShowMainWindow(string path)
@@ -149,16 +109,6 @@ namespace LinkaWPF
             var mainWindow = new MainWindow(_settings);
             
             mainWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            mainWindow.ChangeMode = (str) =>
-            {
-                // Открываем окно редактора
-                ShowEditorWindow(str);
-
-                // Закрываем окно пользовательского режима
-                mainWindow.Close();
-
-                return true;
-            };
 
             if (path != null && path != string.Empty) mainWindow.LoadCardSet(path);
 

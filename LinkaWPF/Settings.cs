@@ -17,7 +17,6 @@ namespace LinkaWPF
         private bool _isPlayAudioFromCard;
         private bool _isPageButtonVisible;
         private bool _isKeyboardEnabled;
-        private bool _isJoystickEnabled;
         private bool _isMouseEnabled;
         private string _voiceId;
         private bool _isOutputType;
@@ -114,16 +113,6 @@ namespace LinkaWPF
             set
             {
                 _isKeyboardEnabled = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public bool IsJoystickEnabled
-        {
-            get { return _isJoystickEnabled; }
-            set
-            {
-                _isJoystickEnabled = value;
                 OnPropertyChanged();
             }
         }

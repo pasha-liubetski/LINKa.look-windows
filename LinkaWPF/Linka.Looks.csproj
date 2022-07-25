@@ -152,20 +152,13 @@
     </ApplicationDefinition>
     <Compile Include="ActionItem.cs" />
     <Compile Include="BoolToGridRowHeightConverter.cs" />
-    <Compile Include="CardEditorWindow.xaml.cs">
-      <DependentUpon>CardEditorWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="CardJsonConverter.cs" />
     <Compile Include="CardSetFile.cs" />
     <Compile Include="CardSetLoader.cs" />
     <Compile Include="DescriptionWindow.xaml.cs">
       <DependentUpon>DescriptionWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EditorWindow.xaml.cs">
-      <DependentUpon>EditorWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="HttpClientDownloadWithProgress.cs" />
-    <Compile Include="Joysticks.cs" />
     <Compile Include="MouseOperations.cs" />
     <Compile Include="MousePointCalcs.cs" />
     <Compile Include="MousePointWindow.xaml.cs">
@@ -189,10 +182,6 @@
     <Compile Include="Utils\ImageGenerator.cs" />
     <Compile Include="YandexSpeech.cs" />
     <Compile Include="YandexVoice.cs" />
-    <Page Include="CardEditorWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Controls\CardBoard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -202,10 +191,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DescriptionWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EditorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

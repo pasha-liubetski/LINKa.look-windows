@@ -56,40 +56,5 @@ namespace LinkaWPF
         {
             return ReportEvent(eventType, null);
         }
-
-        public async Task CheckUpdateAsync()
-        {
-
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            var response = await client.GetAsync(DISTFOLDER + "version.json");
-            var responseBody = await response.Content.ReadAsStringAsync();
-            var jobject = JObject.Parse(responseBody);
-            var newVersion = new Version(jobject.Value<string>("version"));
-            var currentVersion = Assembly.GetExecutingAssembly().GetName().Version;
-
-            if (newVersion.CompareTo(currentVersion) == 1)
-            {
-
-
-                const string message =
-                    "Вышло новая версия программы, хотите загрузить?";
-                const string caption = "Вышло обновление.";
-                var result = MessageBox.Show(message, caption,
-                                             MessageBoxButtons.YesNo,
-                                             MessageBoxIcon.Question);
-
-
-                if (result == DialogResult.Yes)
-                {
-
-                    var window = (new UpdateWindow());
-                    window.Show();
-
-                    //    System.Diagnostics.Process.Start();
-                }
-
-            }
-        }
     }
 }

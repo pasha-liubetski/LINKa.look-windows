@@ -39,11 +39,10 @@ namespace LinkaWPF
         private Settings _settings;
         private Player _player;
         private InputSimulator inputSimulator;
-        private MousePointWindow mousePointWindow;
 
         public MainWindow(Settings settings)
         {
-            StaticServer.instance.ReportEvent("startupApp") ;
+            // StaticServer.instance.ReportEvent("startupApp") ;
             inputSimulator = new InputSimulator();
             InitializeComponent();
 
@@ -63,14 +62,6 @@ namespace LinkaWPF
             cardBoard.Cards = _cards;
 
             _words = new List<Card>();
-            try
-            {
-                var joystick = new Joysticks();
-                joystick.JoystickButtonDown += Joystick_JoystickButtonDown;
-            } catch(Exception e)
-            {
-
-            }
             _player = new Player(_yandexSpeech);
         }
 
@@ -94,12 +85,10 @@ namespace LinkaWPF
             _settings.IsPlayAudioFromCard = settings.IsPlayAudioFromCard;
             _settings.IsPageButtonVisible = settings.IsPageButtonVisible;
 
-            _settings.IsJoystickEnabled = settings.IsJoystickEnabled;
             _settings.IsKeyboardEnabled = settings.IsKeyboardEnabled;
             _settings.IsMouseEnabled = settings.IsMouseEnabled;
             _settings.VoiceId = settings.VoiceId;
             _settings.IsOutputType = settings.IsOutputType;
-            _settings.MousePointReactionFilter = settings.MousePointReactionFilter;
             _settings.SettingsLoader.SaveToFile(_settings.ConfigFilePath, _settings);
         }
 
@@ -153,19 +142,6 @@ namespace LinkaWPF
                     break;
             }
         }
-        private void Joystick_JoystickButtonDown(object sender, string buttonName)
-        {
-            if (Settings.IsJoystickEnabled == true)
-            {
-                RunAction(buttonName);
-                StaticServer.instance.ReportEvent("JoystickAction", new Dictionary<string, string>()
-                {
-                    {"buttonName", buttonName }
-                });
-
-            }
-        }
-
         protected override void OnKeyDown(KeyEventArgs e)
         {
             if (Settings.IsKeyboardEnabled == true)
@@ -380,20 +356,6 @@ namespace LinkaWPF
             LoadCardSet(openFileDialog.FileName);
         }
 
-        private void OpenInEditor_Click(object sender, RoutedEventArgs e)
-        {
-            StaticServer.instance.ReportEvent("OpenInEditor");
-
-            ChangeMode(CurrentFileName);
-        }
-
-        private void OpenEditor_Click(object sender, RoutedEventArgs e)
-        {
-            StaticServer.instance.ReportEvent("OpenEditor");
-
-            ChangeMode(null);
-        }
-
         private void OpenSettings_Click(object sender, RoutedEventArgs e)
         {
             StaticServer.instance.ReportEvent("OpenSettings");
@@ -423,25 +385,9 @@ namespace LinkaWPF
             new DescriptionWindow(false, CurrentFileDescription).Show();
         }
 
-        private void StartMousePoint_Click(object sender, RoutedEventArgs e)
-        {
-            if (mousePointWindow == null || !mousePointWindow.IsEnabled)
-            {
-                MousePointButton.Content = "Выключить КликМышь";
-                mousePointWindow = new MousePointWindow(_host, _settings);
-                mousePointWindow.Show();
-                
-            } else {
-                MousePointButton.Content = "Включить КликМышь";
-
-                mousePointWindow.Close();
-                mousePointWindow = null;
-            }
-        }
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-if(mousePointWindow!=null)            mousePointWindow.Close();
         }
     }
 }

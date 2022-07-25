@@ -20,8 +20,6 @@ namespace LinkaWPF
     /// </summary>
     public partial class SettingsWindow : Window
     {
-        private Joysticks _joysticks;
-
         private IList<ActionItem> _actionList;
 
         private TextBlock _focusedElement;
@@ -38,15 +36,11 @@ namespace LinkaWPF
 
             InitActions();
 
-            _joysticks = new Joysticks();
-            _joysticks.JoystickButtonDown += Joystick_JoystickButtonDown;
-
             isHazGazeEnabledCheckBox.IsChecked = _settings.IsHasGazeEnabled;
             isAnimatedClickEnabledCheckBox.IsChecked = _settings.IsAnimatedClickEnabled;
             isPlayAudioFromCardCheckBox.IsChecked = _settings.IsPlayAudioFromCard;
             isPageButtonVisibleCheckBox.IsChecked = _settings.IsPageButtonVisible;
 
-            isJoystickEnabledCheckBox.IsChecked = _settings.IsJoystickEnabled;
             isKeyboardEnabledCheckBox.IsChecked = _settings.IsKeyboardEnabled;
             isMouseEnabledCheckBox.IsChecked = _settings.IsMouseEnabled;
             isOutputTypeCheckBox.IsChecked = _settings.IsOutputType;
@@ -119,7 +113,6 @@ namespace LinkaWPF
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            _joysticks.JoystickButtonDown -= Joystick_JoystickButtonDown;
         }
 
         private void acceptButton_Click(object sender, RoutedEventArgs e)
@@ -139,10 +132,9 @@ namespace LinkaWPF
             _settings.IsPlayAudioFromCard = isPlayAudioFromCardCheckBox.IsChecked ?? false;
             _settings.IsPageButtonVisible = isPageButtonVisibleCheckBox.IsChecked ?? true;
 
-            _settings.IsJoystickEnabled = isJoystickEnabledCheckBox.IsChecked ?? true;
             _settings.IsKeyboardEnabled = isKeyboardEnabledCheckBox.IsChecked ?? true;
             _settings.IsMouseEnabled = isMouseEnabledCheckBox.IsChecked ?? true;
-            _settings.VoiceId = ((YandexVoice) voiceSelect.SelectionBoxItem).Id??"alena";
+            _settings.VoiceId = ((YandexVoice) voiceSelect.SelectionBoxItem).Id ?? "alena";
             _settings.IsOutputType = isOutputTypeCheckBox.IsChecked ?? false;
             Settings = _settings;
             DialogResult = true;
