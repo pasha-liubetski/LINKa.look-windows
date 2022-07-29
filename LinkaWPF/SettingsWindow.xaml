@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LinkaWPF"
         mc:Ignorable="d"
-        Title="Настройкиы" Height="750" Width="800" ResizeMode="NoResize" Closed="Window_Closed" KeyUp="SetKey">
+        Title="Настройки" Height="550" Width="800" ResizeMode="NoResize" Closed="Window_Closed" KeyUp="SetKey">
     <Window.Resources>
         <Style TargetType="CheckBox">
             <Setter Property="Margin" Value="2, 10, 2, 2"/>
@@ -96,7 +96,7 @@
         </DockPanel>
 
         <DockPanel Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-            <Button Click="acceptButton_Click">Ok</Button>
+            <Button Click="acceptButton_Click">OK</Button>
             <Button Click="cancelButton_Click">Cancel</Button>
         </DockPanel>
     </Grid>
