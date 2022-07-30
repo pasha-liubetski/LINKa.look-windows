@@ -274,7 +274,8 @@ namespace LinkaWPF
             if (_buttons == null)
             {
                 _buttons = new List<CardButton>();
-            } else
+            }
+            else
             {
                 _buttons.Clear();
             }
@@ -298,7 +299,7 @@ namespace LinkaWPF
 
                     grid.Children.Add(button);
                     Grid.SetRow(button, i);
-        
+
                     Grid.SetColumn(button, j);
 
                     _buttons.Add(button);
@@ -586,7 +587,7 @@ namespace LinkaWPF
 
             var index = Cards.IndexOf(SelectedCardButton.Card);
 
-            if (index-Columns < 0 || index >= Cards.Count) return;
+            if (index - Columns < 0 || index >= Cards.Count) return;
 
             var prevCard = Cards[index - Columns];
             Cards[index - Columns] = Cards[index];
@@ -604,7 +605,7 @@ namespace LinkaWPF
 
             var index = Cards.IndexOf(SelectedCardButton.Card);
             var sindex = index;
-            if ((index + Columns) / Columns > Rows-1) return;
+            if ((index + Columns) / Columns > Rows - 1) return;
             var newIndex = index + Columns;
             if (Cards.Count < newIndex)
             {
@@ -621,7 +622,7 @@ namespace LinkaWPF
                 Cards[newIndex] = Cards[index];
                 Cards[index] = tmp;
             }
-                Update(Cards);
+            Update(Cards);
 
             Edit();
         }

@@ -45,7 +45,7 @@ namespace LinkaWPF
 
 
             // Создать директорию для временных файлов
-            _tempDirPath = Path.GetTempPath()+ "\\linka.looks\\temp\\";
+            _tempDirPath = Path.GetTempPath() + "\\linka.looks\\temp\\";
             Directory.CreateDirectory(_tempDirPath);
 
 
@@ -58,7 +58,7 @@ namespace LinkaWPF
             _agent = _host.InitializeWpfAgent();
 
             // Загрузка настроек из файла
-            var configFile = Environment.GetFolderPath( Environment.SpecialFolder.Personal) + "\\linka.looks.config.json";
+            var configFile = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\linka.looks.config.json";
             var settingsLoader = new SettingsLoader();
             if (File.Exists(configFile) == true)
             {
@@ -96,18 +96,16 @@ namespace LinkaWPF
             _settings.SettingsLoader = settingsLoader;
             _settings.TempDirPath = _tempDirPath;
             _settings.YandexSpeech = _yandexSpeech;
-            
+
             _settings.Host = _host;
 
             ShowMainWindow(_path);
-
-            // TODO: Заменить на загрузку из конфига
         }
 
         private void ShowMainWindow(string path)
         {
             var mainWindow = new MainWindow(_settings);
-            
+
             mainWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             if (path != null && path != string.Empty) mainWindow.LoadCardSet(path);

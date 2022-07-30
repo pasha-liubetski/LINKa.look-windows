@@ -175,7 +175,6 @@
     <Compile Include="Controls\CardButton.xaml.cs">
       <DependentUpon>CardButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Utils\ImageGenerator.cs" />
     <Compile Include="YandexSpeech.cs" />
     <Compile Include="YandexVoice.cs" />
     <Page Include="Controls\CardBoard.xaml">

@@ -11,15 +11,17 @@
             <RowDefinition Height="10*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
+
         <TextBox
             Grid.Row="0"
-Height="auto"
-Width="auto"
-TextWrapping="Wrap"
-AcceptsReturn="True"
-HorizontalScrollBarVisibility="Disabled"
-VerticalScrollBarVisibility="Auto"
+            Height="auto"
+            Width="auto"
+            TextWrapping="Wrap"
+            AcceptsReturn="True"
+            HorizontalScrollBarVisibility="Disabled"
+            VerticalScrollBarVisibility="Auto"
             x:Name="EditField"/>
+        
         <WrapPanel Grid.Row="1" x:Name="WrapButtons">
             <Button Click="Cancel_Click" >Отмена</Button>
             <Button Click="Save_Click" >Сохранить</Button>

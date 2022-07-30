@@ -48,17 +48,19 @@ namespace LinkaWPF
         private GazePointDataStream Stream;
 
         private Settings settings;
-        private double ReactionFilter {
+        private double ReactionFilter
+        {
             get
             {
                 return settings.MousePointReactionFilter;
             }
         }
         private double OutFilter = 15;
-        private double Timeout {
+        private double Timeout
+        {
             get
             {
-                return settings.ClickDelay*1000;
+                return settings.ClickDelay * 1000;
             }
         }
 
@@ -73,7 +75,7 @@ namespace LinkaWPF
             Stream = host
                 .Streams
                 .CreateGazePointDataStream(Tobii.Interaction.Framework.GazePointDataMode.LightlyFiltered);
-                Stream.GazePoint(GazePoint);
+            Stream.GazePoint(GazePoint);
 
         }
 
@@ -103,7 +105,7 @@ namespace LinkaWPF
 
                 if (middle < ReactionFilter)
                 {
-                    StartWatchPoint(MousePointCalcs.MiddleValue( points), ts);
+                    StartWatchPoint(MousePointCalcs.MiddleValue(points), ts);
                 }
             }
             else
@@ -115,7 +117,7 @@ namespace LinkaWPF
                 else
                 {
                     double watchTime = ts - StartTS.Value;
-                    Percentage = (watchTime/Timeout)* 100;
+                    Percentage = (watchTime / Timeout) * 100;
                     if (watchTime >= Timeout)
                     {
                         Click();

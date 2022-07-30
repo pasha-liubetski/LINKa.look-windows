@@ -2,18 +2,19 @@
 
 namespace LinkaWPF
 {
-   public class YandexVoice
+    public class YandexVoice
     {
-        public static readonly YandexVoice[] VOICES= new YandexVoice[]
+        public static readonly YandexVoice[] VOICES = new YandexVoice[]
         {
             new YandexVoice("Оксана", "oksana"),
-new YandexVoice("Джейн", "jane"),
-new YandexVoice("Ома", "omazh"),
-new YandexVoice("Захар", "zahar"),
-new YandexVoice("Емиль", "ermil"),
-new YandexVoice("Филипп", "filipp"),
-new YandexVoice("Алена", "alena"),
+            new YandexVoice("Джейн", "jane"),
+            new YandexVoice("Ома", "omazh"),
+            new YandexVoice("Захар", "zahar"),
+            new YandexVoice("Емиль", "ermil"),
+            new YandexVoice("Филипп", "filipp"),
+            new YandexVoice("Алена", "alena"),
         };
+
         string title;
         string id;
         YandexVoice(string title, string id)

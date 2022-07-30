@@ -44,7 +44,7 @@ namespace LinkaWPF
                 if (path == null)
                 {
                     throw new Exception();
-                  
+
                 }
                 tempList.Add(path);
 
@@ -80,7 +80,8 @@ namespace LinkaWPF
                         tempList.Add(path);
                     }
                     catch { }
-                } else
+                }
+                else
                 {
                     // У карточки есть озвучка, вставляем путь к аудио в список воспроизведения
                     tempList.Add(card.AudioPath);
@@ -110,7 +111,8 @@ namespace LinkaWPF
             }
 
             var audio = new Audio(path);
-            audio.Ending += new EventHandler((obj, evnt) => {
+            audio.Ending += new EventHandler((obj, evnt) =>
+            {
                 lastAudio = null;
 
                 PlayAudio(pathList, index);

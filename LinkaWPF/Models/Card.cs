@@ -23,7 +23,7 @@ namespace LinkaWPF.Models
 
         }
 
-        public Card(int id, string title, string imagePath, string audioPath = null) :this(id, title, imagePath, audioPath, CardType.Common)
+        public Card(int id, string title, string imagePath, string audioPath = null) : this(id, title, imagePath, audioPath, CardType.Common)
         {
         }
 

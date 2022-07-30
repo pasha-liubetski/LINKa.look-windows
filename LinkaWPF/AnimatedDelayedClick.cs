@@ -25,7 +25,8 @@ namespace LinkaWPF
             _progress.Visibility = Visibility.Hidden;
 
             var animation = new DoubleAnimation(0, 100, TimeSpan.FromSeconds(delay));
-            animation.Completed += new EventHandler((sender, e) => {
+            animation.Completed += new EventHandler((sender, e) =>
+            {
                 _progress.Visibility = Visibility.Hidden;
                 Ended(_container, new EventArgs());
             });

@@ -46,4 +46,3 @@ namespace LinkaWPF
         public IList<Card> Cards { get; set; }
     }
 }
-        

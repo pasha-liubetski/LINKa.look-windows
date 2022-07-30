@@ -18,13 +18,13 @@ namespace LinkaWPF
 
             using (var archive = ZipFile.Open(filePath, ZipArchiveMode.Create))
             {
-               
+
                 List<string> paths = new List<string>();
                 foreach (var card in cardSetFile.Cards)
                 {
                     string fix = card.ImagePath;
                     string name = Path.GetFileName(fix);
-                    while(paths.Contains(name))
+                    while (paths.Contains(name))
                     {
                         name = "_" + name;
                     }
@@ -39,7 +39,6 @@ namespace LinkaWPF
                 var configEntry = archive.CreateEntry("config.json");
                 using (var writer = new StreamWriter(configEntry.Open()))
                 {
-
                     writer.WriteLine(json);
                 }
 

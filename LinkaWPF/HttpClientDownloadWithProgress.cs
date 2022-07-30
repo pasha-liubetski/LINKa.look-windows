@@ -22,7 +22,8 @@ public class HttpClientDownloadWithProgress : IDisposable
 
     public async Task StartDownload()
     {
-        _httpClient = new HttpClient {
+        _httpClient = new HttpClient
+        {
             //Timeout = TimeSpan.FromDays(1) 
         };
 

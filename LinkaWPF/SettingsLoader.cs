@@ -13,7 +13,8 @@ namespace LinkaWPF
     {
         public void SaveToFile(string configFile, Settings settings)
         {
-            var settingsFile = new SettingsFile() {
+            var settingsFile = new SettingsFile()
+            {
                 Keys = settings.Keys,
                 IsHasGazeEnabled = settings.IsHasGazeEnabled,
                 IsAnimatedClickEnabled = settings.IsAnimatedClickEnabled,
@@ -42,7 +43,9 @@ namespace LinkaWPF
             {
                 var serializer = new JsonSerializer();
                 var settingsFile = (SettingsFile)serializer.Deserialize(file, typeof(SettingsFile));
-                return new Settings() {
+
+                return new Settings()
+                {
                     ConfigFilePath = configFile,
                     Keys = settingsFile.Keys,
                     IsHasGazeEnabled = settingsFile.IsHasGazeEnabled ?? true,
@@ -50,7 +53,7 @@ namespace LinkaWPF
                     ClickDelay = settingsFile.ClickDelay ?? 1,
                     IsPlayAudioFromCard = settingsFile.IsPlayAudioFromCard ?? false,
                     IsPageButtonVisible = settingsFile.IsPageButtonVisible ?? true,
-                     IsKeyboardEnabled = settingsFile.IsKeyboardEnabled ?? false,
+                    IsKeyboardEnabled = settingsFile.IsKeyboardEnabled ?? false,
                     IsMouseEnabled = settingsFile.IsMouseEnabled ?? true,
                     VoiceId = settingsFile.VoiceId ?? "jane",
                     IsOutputType = settingsFile.IsOutputType ?? false,

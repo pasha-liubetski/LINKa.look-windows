@@ -47,7 +47,7 @@ namespace LinkaWPF
 
             voiceSelect.ItemsSource = YandexVoice.VOICES;
             voiceSelect.SelectedIndex = YandexVoice.FindIndexById(_settings.VoiceId);
-          
+
             DataContext = _settings;
         }
 
@@ -134,7 +134,7 @@ namespace LinkaWPF
 
             _settings.IsKeyboardEnabled = isKeyboardEnabledCheckBox.IsChecked ?? true;
             _settings.IsMouseEnabled = isMouseEnabledCheckBox.IsChecked ?? true;
-            _settings.VoiceId = ((YandexVoice) voiceSelect.SelectionBoxItem).Id ?? "alena";
+            _settings.VoiceId = ((YandexVoice)voiceSelect.SelectionBoxItem).Id ?? "alena";
             _settings.IsOutputType = isOutputTypeCheckBox.IsChecked ?? false;
             Settings = _settings;
             DialogResult = true;
@@ -189,8 +189,8 @@ namespace LinkaWPF
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if(_settings!=null)
-            _settings.MousePointReactionFilter = e.NewValue;
+            if (_settings != null)
+                _settings.MousePointReactionFilter = e.NewValue;
         }
     }
 }

@@ -9,10 +9,10 @@ namespace LinkaWPF
 {
     class MousePointCalcs
     {
-        public static double CalcMiddleLength (List<Vector> points)
+        public static double CalcMiddleLength(List<Vector> points)
         {
             double sum = 0;
-            for (int i = 0; i < points.Count-2; i++)
+            for (int i = 0; i < points.Count - 2; i++)
             {
                 sum += (points[i] - points[i + 1]).Length;
             }
