@@ -1,13 +1,7 @@
 ﻿using CommandLine;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.IO;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
 using System.Windows;
 using Tobii.Interaction;
 using Tobii.Interaction.Wpf;

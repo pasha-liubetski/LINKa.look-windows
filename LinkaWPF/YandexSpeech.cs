@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
-using Tobii.Interaction.Wpf;
 
 namespace LinkaWPF
 {
@@ -30,7 +25,7 @@ namespace LinkaWPF
         {
             var client = new HttpClient();
             // client.Timeout = TimeSpan.FromMilliseconds(10000);
-            
+
             var values = new Dictionary<string, string>
             {
                 { "text", text },
@@ -39,7 +34,7 @@ namespace LinkaWPF
 
             var content = new FormUrlEncodedContent(values);
             var response = await client.PostAsync("http://linka.su:5443/voice", content);
-            
+
             if (response.IsSuccessStatusCode == true)
             {
                 var responseBytes = await response.Content.ReadAsByteArrayAsync();

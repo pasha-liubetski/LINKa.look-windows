@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LinkaWPF
+﻿namespace LinkaWPF
 {
     public class YandexVoice
     {
