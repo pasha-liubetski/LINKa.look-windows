@@ -56,7 +56,7 @@ namespace LinkaWPF
             _animation.From = 0;
             _animation.To = 100;
             _animation.Duration = TimeSpan.FromSeconds(3);
-            
+
             _animation.Completed += new EventHandler((sender, e) =>
             {
                 _progress.Visibility = Visibility.Hidden;

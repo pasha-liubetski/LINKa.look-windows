@@ -80,7 +80,7 @@ namespace LinkaWPF
 
             _settings.IsHasGazeEnabled = settings.IsHasGazeEnabled;
             _settings.IsAnimatedClickEnabled = settings.IsAnimatedClickEnabled;
-            _settings.ClickDelay =  settings.ClickDelay;
+            _settings.ClickDelay = settings.ClickDelay;
             _settings.IsPlayAudioFromCard = settings.IsPlayAudioFromCard;
             _settings.IsPageButtonVisible = settings.IsPageButtonVisible;
 
@@ -179,7 +179,7 @@ namespace LinkaWPF
         private void pressCardButton(CardButton cardButton)
         {
             if (cardButton.Card == null) return;
-       
+
             if (_settings.IsPlayAudioFromCard == true)
             {
                 var cards = new List<Card>();
@@ -223,7 +223,7 @@ namespace LinkaWPF
                     // Добавить карточку в цепочку
                     _words.Add(cardButton.Card);
                 }
-                }
+            }
         }
 
         private void cardButton_Click(object sender, EventArgs e)
@@ -308,7 +308,7 @@ namespace LinkaWPF
                 CurrentFileDescription = cardSetFile.Description;
                 WithoutSpace = cardSetFile.WithoutSpace;
                 IsDirectSet = cardSetFile.DirectSet;
-                _settings.IsPlayAudioFromCard = IsDirectSet?true:_settings.IsPlayAudioFromCard;
+                _settings.IsPlayAudioFromCard = IsDirectSet ? true : _settings.IsPlayAudioFromCard;
                 _cards = cardSetFile.Cards;
                 foreach (var card in _cards)
                 {
