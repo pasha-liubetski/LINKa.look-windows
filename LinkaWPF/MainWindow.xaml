@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LinkaWPF"
         mc:Ignorable="d"
           WindowState="Maximized"
-           Title="LINKa. смотри" Height="600" Width="900">
+           Title="LINKa. смотри (fork)" Height="600" Width="900">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="visibleIfTrueConverter" />
         

@@ -7,12 +7,12 @@ using System.Windows;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("LINKa. смотри")]
+[assembly: AssemblyTitle("LINKa. смотри (fork)")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("LINKa")]
 [assembly: AssemblyProduct("LINKa.smotri")]
-[assembly: AssemblyCopyright("Бакаидов Иван Александрович ©  2020")]
+[assembly: AssemblyCopyright("Бакаидов Иван Александрович ©  2020, правки кода - Паша Любецкий (2022)")]
 [assembly: AssemblyTrademark("LINKa")]
 [assembly: AssemblyCulture("")]
 
@@ -50,6 +50,6 @@ using System.Windows;
 // Можно задать все значения или принять номер сборки и номер редакции по умолчанию.
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.7.0.0")]
-[assembly: AssemblyFileVersion("1.7.0.0")]
+[assembly: AssemblyVersion("1.7.0.1")]
+[assembly: AssemblyFileVersion("1.7.0.1")]
 [assembly: NeutralResourcesLanguage("ru-RU")]
