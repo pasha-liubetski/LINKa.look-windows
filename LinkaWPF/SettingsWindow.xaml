@@ -5,24 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LinkaWPF"
         mc:Ignorable="d"
-        Title="Настройки" Height="550" Width="800" ResizeMode="NoResize" Closed="Window_Closed" KeyUp="SetKey">
+        Title="Настройки" ResizeMode="NoResize" Closed="Window_Closed" KeyUp="SetKey" d:DesignHeight="324.608" SizeToContent="WidthAndHeight">
     <Window.Resources>
         <Style TargetType="CheckBox">
             <Setter Property="Margin" Value="2, 10, 2, 2"/>
         </Style>
         <Style TargetType="Button">
-            <Setter Property="Height" Value="30"/>
+            <Setter Property="Height" Value="28"/>
             <Setter Property="Width" Value="100"/>
+            <Setter Property="Margin" Value="2"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="28"/>
+            <Setter Property="Margin" Value="2"/>
+        </Style>
+        <Style TargetType="DockPanel">
             <Setter Property="Margin" Value="2"/>
         </Style>
     </Window.Resources>
     <Grid x:Name="grid" FocusManager.IsFocusScope="True" Margin="5">
-        <Grid.ColumnDefinitions/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0">
@@ -65,7 +77,7 @@
             </ItemsControl>
         </StackPanel>
 
-        <StackPanel Grid.Row="1">
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
             <CheckBox x:Name="isHazGazeEnabledCheckBox" Content="Выбор карточки взглядом"/>
             <CheckBox x:Name="isAnimatedClickEnabledCheckBox" Content="Нажатие взглядом с задержкой"/>
             <CheckBox x:Name="isPlayAudioFromCardCheckBox" Content="Воспроизводить аудио с карточки при нажатии"/>
@@ -73,10 +85,15 @@
             <CheckBox x:Name="isKeyboardEnabledCheckBox" Content="Включить управление с помощью клавиатуры"/>
             <CheckBox x:Name="isMouseEnabledCheckBox" Content="Включить управление с помощью мыши"/>
             <CheckBox x:Name="isOutputTypeCheckBox" Content="Включить вывод в другие програмы"/>
+        </StackPanel>
 
-            <StackPanel>
-                <TextBox>Настройки голоса;</TextBox>
-                <ComboBox x:Name="voiceSelect" >
+        <DockPanel Grid.Row="2" VerticalAlignment="Center" Margin="2,5,2,5" >
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0,0,5,0">
+                <TextBlock>Настройки голоса:</TextBlock>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <ComboBox x:Name="voiceSelect" Margin="0,0,2,0" >
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Title}"/>
@@ -84,18 +101,21 @@
                     </ComboBox.ItemTemplate>
                 </ComboBox>
             </StackPanel>
-            <StackPanel>
-            </StackPanel>
-        </StackPanel>
-
-        <DockPanel Grid.Row="2" Margin="2">
-            <TextBlock Text="Время задержки (сек.)" VerticalAlignment="Center"/>
-            <TextBox x:Name="clickDelayTextBlock" Width="100" Margin="2" VerticalContentAlignment="Center" IsReadOnly="True" Text="{Binding ClickDelay}" />
-            <Button Content="-" Click="decreaseButton_Click" />
-            <Button Content="+" Click="increaseButton_Click" />
         </DockPanel>
 
-        <DockPanel Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+        <DockPanel Grid.Row="3">
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0,0,5,0">
+                <TextBlock Text="Время задержки (сек.)" />
+            </StackPanel>
+
+            <DockPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <TextBox x:Name="clickDelayTextBlock" Width="100" IsReadOnly="True" Text="{Binding ClickDelay}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <Button Content="-" Click="decreaseButton_Click" />
+                <Button Content="+" Click="increaseButton_Click" />
+            </DockPanel>
+        </DockPanel>
+
+        <DockPanel Grid.Row="4" HorizontalAlignment="Left">
             <Button Click="acceptButton_Click">OK</Button>
             <Button Click="cancelButton_Click">Cancel</Button>
         </DockPanel>
