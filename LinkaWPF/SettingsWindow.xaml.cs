@@ -79,11 +79,11 @@ namespace LinkaWPF
             _actionDictionary = new Dictionary<string, int>();
             _actionList = new List<ActionItem>();
 
-            AddAction("MoveSelectorLeft", "Селектор влево");
-            AddAction("MoveSelectorRight", "Селектор вправо");
-            AddAction("MoveSelectorUp", "Селектор вверх");
-            AddAction("MoveSelectorDown", "Селектор вниз");
-            AddAction("Enter", "Выбор карточки");
+            AddAction("MoveSelectorLeft", "Селектор влево:");
+            AddAction("MoveSelectorRight", "Селектор вправо:");
+            AddAction("MoveSelectorUp", "Селектор вверх:");
+            AddAction("MoveSelectorDown", "Селектор вниз:");
+            AddAction("Enter", "Выбор карточки:");
 
             foreach (var keyItem in _settings.Keys)
             {
@@ -110,9 +110,11 @@ namespace LinkaWPF
         private void acceptButton_Click(object sender, RoutedEventArgs e)
         {
             _settings.Keys.Clear();
+            
             foreach (var actionName in _actionDictionary)
             {
                 var actionItem = GetActionItemFromName(actionName.Key);
+
                 foreach (var keyName in actionItem.Keys)
                 {
                     _settings.Keys[keyName] = actionName.Key;
@@ -128,6 +130,7 @@ namespace LinkaWPF
             _settings.IsMouseEnabled = isMouseEnabledCheckBox.IsChecked ?? true;
             _settings.VoiceId = ((YandexVoice)voiceSelect.SelectionBoxItem).Id ?? "alena";
             _settings.IsOutputType = isOutputTypeCheckBox.IsChecked ?? false;
+
             Settings = _settings;
             DialogResult = true;
         }
@@ -139,7 +142,8 @@ namespace LinkaWPF
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (_focusedElement != null) _focusedElement.Background = Brushes.White;
+            if (_focusedElement != null)
+                _focusedElement.Background = Brushes.White;
 
             _focusedElement = sender as TextBlock;
             _focusedElement.Background = Brushes.Orange;
@@ -171,7 +175,8 @@ namespace LinkaWPF
         {
             _settings.ClickDelay -= 0.1;
 
-            if (_settings.ClickDelay < 0.5) _settings.ClickDelay = 0.5;
+            if (_settings.ClickDelay < 0.5)
+                _settings.ClickDelay = 0.5;
         }
 
         private void increaseButton_Click(object sender, RoutedEventArgs e)

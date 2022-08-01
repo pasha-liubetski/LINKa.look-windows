@@ -5,25 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LinkaWPF"
         mc:Ignorable="d"
-        Title="Настройки" ResizeMode="NoResize" Closed="Window_Closed" KeyUp="SetKey" d:DesignHeight="324.608" SizeToContent="WidthAndHeight">
+        Title="Настройки" ResizeMode="NoResize" Closed="Window_Closed" KeyUp="SetKey" SizeToContent="WidthAndHeight">
     <Window.Resources>
-        <Style TargetType="CheckBox">
-            <Setter Property="Margin" Value="2, 10, 2, 2"/>
-        </Style>
-        <Style TargetType="Button">
-            <Setter Property="Height" Value="28"/>
-            <Setter Property="Width" Value="100"/>
-            <Setter Property="Margin" Value="2"/>
-        </Style>
-        <Style TargetType="TextBox">
-            <Setter Property="Height" Value="28"/>
-            <Setter Property="Margin" Value="2"/>
-        </Style>
-        <Style TargetType="DockPanel">
-            <Setter Property="Margin" Value="2"/>
+        <Style TargetType="ComboBox">
+            <Setter Property="Padding" Value="0"/>
         </Style>
     </Window.Resources>
-    <Grid x:Name="grid" FocusManager.IsFocusScope="True" Margin="5">
+    <Grid x:Name="grid" FocusManager.IsFocusScope="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
@@ -37,19 +25,57 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0">
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <CheckBox x:Name="isHazGazeEnabledCheckBox" Content="Выбор карточки взглядом"/>
+            <CheckBox x:Name="isAnimatedClickEnabledCheckBox" Content="Нажатие взглядом с задержкой"/>
+            <CheckBox x:Name="isPlayAudioFromCardCheckBox" Content="Воспроизводить аудио с карточки при нажатии"/>
+            <CheckBox x:Name="isPageButtonVisibleCheckBox" Content="Показывать кнопки перемотки страниц"/>
+            <CheckBox x:Name="isKeyboardEnabledCheckBox" Content="Включить управление с помощью клавиатуры"/>
+            <CheckBox x:Name="isMouseEnabledCheckBox" Content="Включить управление с помощью мыши"/>
+            <CheckBox x:Name="isOutputTypeCheckBox" Content="Включить вывод в другие програмы"/>
+        </StackPanel>
+
+        <DockPanel Grid.Row="1">
+            <StackPanel Grid.Column="0">
+                <TextBlock>Настройки голоса:</TextBlock>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+                <ComboBox x:Name="voiceSelect" HorizontalAlignment="Stretch">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Title}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+        </DockPanel>
+
+        <DockPanel Grid.Row="2">
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Время задержки (секунд):" />
+            </StackPanel>
+
+            <DockPanel Grid.Column="1" HorizontalAlignment="Right">
+                <TextBox x:Name="clickDelayTextBlock" Width="50" IsReadOnly="True" Text="{Binding ClickDelay}" />
+                <Button Content="-" Click="decreaseButton_Click" />
+                <Button Content="+" Click="increaseButton_Click" />
+            </DockPanel>
+        </DockPanel>
+
+        <StackPanel Grid.Row="3">
             <ItemsControl x:Name="actionItems">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <DockPanel HorizontalAlignment="Center">
-                            <TextBlock Width="120" VerticalAlignment="Center" Text="{Binding Path=Title}"/>
+                        <DockPanel>
+                            <TextBlock Width="100" Text="{Binding Path=Title}"/>
 
-                            <Border BorderThickness="1" BorderBrush="Black" Margin="2">
-                                <TextBlock Width="400" Tag="{Binding Path=Name}" MouseDown="TextBlock_MouseDown">
+                            <Border BorderThickness="1" BorderBrush="Black">
+                                <TextBlock Width="200" Tag="{Binding Path=Name}" MouseDown="TextBlock_MouseDown">
                                     <ItemsControl ItemsSource="{Binding Keys}">
                                         <ItemsControl.ItemsPanel>
                                             <ItemsPanelTemplate>
-                                                <StackPanel Margin="2" Orientation="Horizontal"/>
+                                                <StackPanel Orientation="Horizontal"/>
                                             </ItemsPanelTemplate>
                                         </ItemsControl.ItemsPanel>
                                         <ItemsControl.ItemTemplate>
@@ -64,58 +90,14 @@
                                 </TextBlock>
                             </Border>
 
-                            <Button Width="40" Click="RemoveLastKey" Tag="{Binding Name}">
-                                <Viewbox Width="20" Height="20">
-                                    <Canvas Width="10" Height="10">
-                                        <Path Fill="Black" Data="M13,13H18V15H13M13,9H18V11H13M10.09,7.41L11.5,8.82L8.32,12L11.5,15.18L10.09,16.6L5.5,12M5,3C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3H5Z" Height="10" Stretch="Fill" Width="10" />
-                                    </Canvas>
-                                </Viewbox>
-                            </Button>
+                            <Button Click="RemoveLastKey" Tag="{Binding Name}">Очистить</Button>
                         </DockPanel>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-            <CheckBox x:Name="isHazGazeEnabledCheckBox" Content="Выбор карточки взглядом"/>
-            <CheckBox x:Name="isAnimatedClickEnabledCheckBox" Content="Нажатие взглядом с задержкой"/>
-            <CheckBox x:Name="isPlayAudioFromCardCheckBox" Content="Воспроизводить аудио с карточки при нажатии"/>
-            <CheckBox x:Name="isPageButtonVisibleCheckBox" Content="Показывать кнопки перемотки страниц"/>
-            <CheckBox x:Name="isKeyboardEnabledCheckBox" Content="Включить управление с помощью клавиатуры"/>
-            <CheckBox x:Name="isMouseEnabledCheckBox" Content="Включить управление с помощью мыши"/>
-            <CheckBox x:Name="isOutputTypeCheckBox" Content="Включить вывод в другие програмы"/>
-        </StackPanel>
-
-        <DockPanel Grid.Row="2" VerticalAlignment="Center" Margin="2,5,2,5" >
-            <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0,0,5,0">
-                <TextBlock>Настройки голоса:</TextBlock>
-            </StackPanel>
-
-            <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                <ComboBox x:Name="voiceSelect" Margin="0,0,2,0" >
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Title}"/>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-            </StackPanel>
-        </DockPanel>
-
-        <DockPanel Grid.Row="3">
-            <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0,0,5,0">
-                <TextBlock Text="Время задержки (сек.)" />
-            </StackPanel>
-
-            <DockPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <TextBox x:Name="clickDelayTextBlock" Width="100" IsReadOnly="True" Text="{Binding ClickDelay}" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                <Button Content="-" Click="decreaseButton_Click" />
-                <Button Content="+" Click="increaseButton_Click" />
-            </DockPanel>
-        </DockPanel>
-
-        <DockPanel Grid.Row="4" HorizontalAlignment="Left">
+        <DockPanel Grid.Row="4">
             <Button Click="acceptButton_Click">OK</Button>
             <Button Click="cancelButton_Click">Cancel</Button>
         </DockPanel>
