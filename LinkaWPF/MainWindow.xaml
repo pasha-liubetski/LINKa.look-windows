@@ -9,12 +9,9 @@
            Title="LINKa. смотри (fork)" Height="600" Width="900">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="visibleIfTrueConverter" />
-
     </Window.Resources>
 
-
     <Grid x:Name="mainGrid">
-
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition >
@@ -39,32 +36,43 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="overflowGrid" Panel.ZIndex="1000" Grid.RowSpan="4" Grid.ColumnSpan="3"  >
+        <Grid x:Name="overflowGrid" Panel.ZIndex="1000" Grid.RowSpan="4" Grid.ColumnSpan="3" >
             <Grid.Background>
                 <SolidColorBrush Color="White" Opacity="0.8">
 
                 </SolidColorBrush>
             </Grid.Background>
 
+            <Grid.Resources>
+                <Style TargetType="Image">
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Margin" Value="5"/>
+                </Style>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="5"/>
+                    <Setter Property="FontSize" Value="32" />
+                </Style>
+            </Grid.Resources>
+
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
-
                 <RowDefinition />
                 <RowDefinition />
-                <RowDefinition />
-
             </Grid.RowDefinitions>
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Image Grid.Column="1" Width="Auto" MaxWidth="180" HorizontalAlignment="Center" VerticalAlignment="Center" Source="LINKa.looks-logo.png" Grid.RowSpan="2"/>
 
-            <Button Content="Открыть набор" Grid.Row="2" Click="Open_Click" Grid.Column="1"/>
-            <Button Content="Открыть настройки" Grid.Row="3" Click="OpenSettings_Click" Grid.Column="1"/>
+            <Image Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Width="Auto" MaxWidth="300" Source="LINKa.looks-logo.png"/>
+
+            <Button Content="Открыть набор" Grid.Row="2" Click="Open_Click" Grid.Column="1" />
+            <Button Content="Настройки" Grid.Row="3" Click="OpenSettings_Click" Grid.Column="1" />
         </Grid>
 
 
