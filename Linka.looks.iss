@@ -5,7 +5,7 @@
 #define MyAppPublisher "LINKa"
 #define MyAppURL "http://www.linka.su"
 #define MyAppExeName "linka.looks-fork.exe"
-#define MyAppVersion "1.7.0.1"
+#define MyAppVersion "1.7.0.2"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
@@ -28,6 +28,7 @@ Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
 ChangesAssociations = yes
+
 [Languages]
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 
@@ -40,12 +41,11 @@ Source: ".\LinkaWPF\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recur
 Source: ".\DefaultSets\*"; DestDir: "{userdocs}\LINKa"; Flags: ignoreversion recursesubdirs createallsubdirs onlyifdoesntexist
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
  
- [Registry]
+[Registry]
 
 Root: HKCR; Subkey: ".linka"; ValueData: "{#MyAppName}"; Flags: uninsdeletevalue; ValueType: string; ValueName: ""
-Root: HKCR; Subkey: "{#MyAppName}"; ValueData: "Карточки LINKa"; Flags: uninsdeletekey; ValueType: string; ValueName: ""
+Root: HKCR; Subkey: "{#MyAppName}"; ValueData: "LINKa cards"; Flags: uninsdeletekey; ValueType: string; ValueName: ""
 Root: HKCR; Subkey: "{#MyAppName}\shell\open\command"; ValueData: """{app}\{#MyAppExeName}"" -p ""%1"""; ValueType: string; ValueName: ""
-
 Root: HKCR; Subkey: "{#MyAppName}\DefaultIcon"; ValueData: "{app}\linka_looks_logo_mp5_icon.ico"; ValueType: string; ValueName: "" ;
 
 [Icons]
