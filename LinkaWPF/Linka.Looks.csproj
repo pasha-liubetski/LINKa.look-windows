@@ -271,7 +271,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="linka_looks_logo_mp5_icon.ico" />
+    <Resource Include="linka_looks_logo_mp5_icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <FileAssociation Include=".linka">

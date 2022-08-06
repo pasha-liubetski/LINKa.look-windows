@@ -39,7 +39,7 @@ namespace LinkaWPF
 
 
             // Создать директорию для временных файлов
-            _tempDirPath = Path.GetTempPath() + "\\linka.looks\\temp\\";
+            _tempDirPath = Path.GetTempPath() + "\\linka.looks-fork\\temp\\";
             Directory.CreateDirectory(_tempDirPath);
 
 
@@ -52,7 +52,7 @@ namespace LinkaWPF
             _agent = _host.InitializeWpfAgent();
 
             // Загрузка настроек из файла
-            var configFile = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\linka.looks.config.json";
+            var configFile = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\linka.looks-fork.config.json";
             var settingsLoader = new SettingsLoader();
             if (File.Exists(configFile) == true)
             {

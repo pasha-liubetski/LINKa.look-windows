@@ -19,7 +19,7 @@ AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={autopf}\LINKa\LINKa.Looks-fork
-DisableProgramGroupPage=yes
+DisableProgramGroupPage=no
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=.\Releases
@@ -37,8 +37,10 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: ".\LinkaWPF\bin\Release\Linka.looks-fork.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: ".\LinkaWPF\linka_looks_logo_mp5_icon.ico"; DestDir: "{app}"; Flags: ignoreversion
 Source: ".\LinkaWPF\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: ".\DefaultSets\*"; DestDir: "{userdocs}\LINKa"; Flags: ignoreversion recursesubdirs createallsubdirs onlyifdoesntexist
+Source: ".\LinkaWPF\linka_looks_logo_mp5_icon.ico"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
  
 [Registry]
