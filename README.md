@@ -9,3 +9,11 @@
 
 ![Screenshot_1](Screenshot_1.png)
 ![Screenshot_2](Screenshot_2.png)
+
+## Запуск в GNU/Linux
+
+![LINKa в Linux](Screenshot_linux.png)
+
+У меня получилось запустить LINKa в wine-staging 7.15 на Kali GNU/Linux 2022.3 (это почти Debian Testing). Для запуска потребовалось установить .NET Framework 4.8 через winetricks. В принципе, шаги для запуска в wine те же, что и для других WPF-приложений.
+
+[Getting Windows WPF Applications to run with Wine (Reddit)](https://www.reddit.com/r/linux4noobs/comments/firqs9/getting_windows_wpf_applications_to_run_with_wine/)
