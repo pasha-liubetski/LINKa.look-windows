@@ -18,7 +18,7 @@ namespace LinkaWPF
     /// <summary>
     /// Логика взаимодействия для App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : Application, IDisposable
     {
         private Host _host;
         private WpfInteractorAgent _agent;
@@ -138,6 +138,12 @@ namespace LinkaWPF
                 }
                 catch { }
             }
+        }
+
+        public void Dispose()
+        {
+            _host.Dispose();
+            _agent.Dispose();
         }
     }
 }

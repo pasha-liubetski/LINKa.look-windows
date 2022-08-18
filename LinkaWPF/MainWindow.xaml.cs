@@ -14,7 +14,7 @@ namespace LinkaWPF
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IDisposable
     {
         private IList<Card> _cards;
         private IList<Card> _words;
@@ -359,6 +359,11 @@ namespace LinkaWPF
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
+        }
+
+        public void Dispose()
+        {
+            _player.Dispose();
         }
     }
 }

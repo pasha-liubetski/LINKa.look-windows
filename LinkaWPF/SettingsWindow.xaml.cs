@@ -115,9 +115,12 @@ namespace LinkaWPF
             {
                 var actionItem = GetActionItemFromName(actionName.Key);
 
-                foreach (var keyName in actionItem.Keys)
+                if (actionItem != null)
                 {
-                    _settings.Keys[keyName] = actionName.Key;
+                    foreach (var keyName in actionItem.Keys)
+                    {
+                        _settings.Keys[keyName] = actionName.Key;
+                    }
                 }
             }
 

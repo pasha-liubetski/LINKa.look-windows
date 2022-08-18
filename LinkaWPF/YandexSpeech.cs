@@ -18,8 +18,14 @@ namespace LinkaWPF
 
         public async Task<string> GetAudio(string text)
         {
+            var voice = YandexVoice.FindById(_settings.VoiceId);
 
-            return await GetAudio(text, YandexVoice.FindById(_settings.VoiceId));
+            if (voice == null)
+            {
+                return null;
+            }
+
+            return await GetAudio(text, voice);
         }
 
         public async Task<string> GetAudio(string text, YandexVoice voice)
