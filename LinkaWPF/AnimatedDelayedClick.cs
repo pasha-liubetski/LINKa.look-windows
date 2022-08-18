@@ -23,7 +23,8 @@ namespace LinkaWPF
             animation.Completed += new EventHandler((sender, e) =>
             {
                 _progress.Visibility = Visibility.Hidden;
-                Ended(_container, new EventArgs());
+
+                Ended?.Invoke(_container, new EventArgs());
             });
             Storyboard.SetTarget(animation, _progress);
             Storyboard.SetTargetProperty(animation, new PropertyPath(CircularProgressBar.PercentageProperty));

@@ -21,6 +21,7 @@ namespace LinkaWPF
 
             return await GetAudio(text, YandexVoice.FindById(_settings.VoiceId));
         }
+
         public async Task<string> GetAudio(string text, YandexVoice voice)
         {
             var client = new HttpClient();
