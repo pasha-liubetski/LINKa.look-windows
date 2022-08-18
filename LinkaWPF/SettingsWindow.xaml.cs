@@ -110,7 +110,7 @@ namespace LinkaWPF
         private void acceptButton_Click(object sender, RoutedEventArgs e)
         {
             _settings.Keys.Clear();
-            
+
             foreach (var actionName in _actionDictionary)
             {
                 var actionItem = GetActionItemFromName(actionName.Key);

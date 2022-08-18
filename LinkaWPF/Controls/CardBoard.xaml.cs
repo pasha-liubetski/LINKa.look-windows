@@ -201,8 +201,8 @@ namespace LinkaWPF
 
         private static void IsMouseEnabledChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
         {
-            var cardBoard = (CardBoard) sender;
-            cardBoard.IsMouseEnabled = (bool) args.NewValue;
+            var cardBoard = (CardBoard)sender;
+            cardBoard.IsMouseEnabled = (bool)args.NewValue;
 
             foreach (var cardButton in cardBoard._buttons)
             {

@@ -115,11 +115,12 @@ namespace LinkaWPF
                 lastAudio = null;
 
                 PlayAudio(pathList, index);
-                
-                Task.Run(() => {
-                        (obj as Audio).Dispose();
-                    });
+
+                Task.Run(() =>
+                {
+                    (obj as Audio).Dispose();
                 });
+            });
 
             audio.Play();
             lastAudio = audio;
