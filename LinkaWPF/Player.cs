@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LinkaWPF
 {
-    public class Player
+    public class Player : IDisposable
     {
         private readonly YandexSpeech _yandexSpeech;
 
@@ -115,11 +115,20 @@ namespace LinkaWPF
                 lastAudio = null;
 
                 PlayAudio(pathList, index);
-                Task.Run(() => { (obj as Audio).Dispose(); });
-            });
+                
+                Task.Run(() => {
+                        (obj as Audio).Dispose();
+                    });
+                });
+
             audio.Play();
             lastAudio = audio;
             index++;
+        }
+
+        public void Dispose()
+        {
+            lastAudio.Dispose();
         }
     }
 }
