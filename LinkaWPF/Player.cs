@@ -53,6 +53,7 @@ namespace LinkaWPF
                 var synthesizer = new SpeechSynthesizer();
                 synthesizer.SetOutputToDefaultAudioDevice();
                 synthesizer.Speak(text);
+                synthesizer.Dispose();
             }
         }
 
