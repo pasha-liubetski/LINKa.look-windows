@@ -5,11 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LinkaWPF"
         mc:Ignorable="d"
-        Title="Заметки по работе с набором" Height="450" Width="800">
+        Title="Заметки по работе с набором"
+        ResizeMode="NoResize" SizeToContent="Height" Width="650" FontSize="18">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*"></RowDefinition>
-            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
         <TextBox
@@ -22,9 +32,8 @@
             VerticalScrollBarVisibility="Auto"
             x:Name="EditField"/>
         
-        <WrapPanel Grid.Row="1" x:Name="WrapButtons">
-            <Button Click="Cancel_Click" >Отмена</Button>
-            <Button Click="Save_Click" >Сохранить</Button>
-        </WrapPanel>
+        <StackPanel Grid.Row="1">
+            <Button Click="cancelButton_Click">Закрыть</Button>
+        </StackPanel>
     </Grid>
 </Window>

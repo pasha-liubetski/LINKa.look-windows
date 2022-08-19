@@ -151,7 +151,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ActionItem.cs" />
-    <Compile Include="BoolToGridRowHeightConverter.cs" />
     <Compile Include="CardJsonConverter.cs" />
     <Compile Include="CardSetFile.cs" />
     <Compile Include="CardSetLoader.cs" />
