@@ -59,9 +59,8 @@ namespace LinkaWPF
                 _clickDelay = value;
                 OnPropertyChanged();
             }
-
-
         }
+
         public double MousePointReactionFilter
         {
             get { return _mousePointReactionFilter; }
@@ -71,6 +70,7 @@ namespace LinkaWPF
                 OnPropertyChanged();
             }
         }
+
         public string VoiceId
         {
             get

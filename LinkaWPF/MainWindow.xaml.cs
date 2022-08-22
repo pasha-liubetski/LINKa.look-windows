@@ -114,10 +114,6 @@ namespace LinkaWPF
                     break;
                 case "Enter":
                     {
-                        /*if (cardBoard.SelectedCardButton == null) return;
-
-                        pressCardButton(cardBoard.SelectedCardButton);*/
-
                         var button = Keyboard.FocusedElement as Button;
 
                         if (button != null) button.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
@@ -317,7 +313,6 @@ namespace LinkaWPF
         private bool IsDirectSet { get; set; }
 
         public Func<string, bool> ChangeMode;
-
         public string CurrentFileName { get; set; }
         public string CurrentFileDescription { get; private set; }
 
