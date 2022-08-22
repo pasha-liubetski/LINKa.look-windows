@@ -1,6 +1,4 @@
-﻿using LinkaWPF.Models;
-using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
 using System.IO;
 using System.IO.Compression;
 

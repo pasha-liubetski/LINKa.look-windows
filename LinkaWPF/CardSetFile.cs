@@ -26,7 +26,7 @@ namespace LinkaWPF
 
         [JsonProperty("directSet")]
         public bool DirectSet { get; set; }
-        
+
         [JsonProperty("columns")]
         public int Columns { get; set; }
 

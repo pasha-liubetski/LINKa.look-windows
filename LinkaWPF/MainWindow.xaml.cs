@@ -288,7 +288,7 @@ namespace LinkaWPF
                 cardBoard.Rows = cardSetFile.Rows;
                 CurrentFileDescription = cardSetFile.Description;
                 WithoutSpace = cardSetFile.WithoutSpace;
-                IsDirectSet = cardSetFile.DirectSet;                
+                IsDirectSet = cardSetFile.DirectSet;
                 _settings.IsPlayAudioFromCard = IsDirectSet ? true : _settings.IsPlayAudioFromCard;
                 _cards = cardSetFile.Cards;
                 foreach (var card in _cards)
