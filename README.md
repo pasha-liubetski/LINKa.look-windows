@@ -2,7 +2,7 @@
 
 Это репозиторий форка программы "LINKa. Смотри".
 
-Домашняя страница оригинального проекта – <https://linka.su/looks/>, репозиторий с исходными текстами – <https://github.com/linkasu/LINKa.look-windows>.
+Домашняя страница оригинального проекта – <https://linka.su/looks/>, репозиторий с исходными текстами – <https://github.com/linkasu/LINKa.look-windows>. Новая версия "LINKa. Смотри", переписанная Бакаидовым на TypeScript — <https://github.com/linkasu/linka.looks-electron>, установочный файл — <https://github.com/linkasu/linka.looks-electron/releases>.
 
 Язык – C#, написана с использованием WPF, версия .NET Framework – 4.8.
 
@@ -10,6 +10,10 @@
 
 ![Screenshot_1](Screenshot_1.png)
 ![Screenshot_2](Screenshot_2.png)
+
+## Что делать, если программа не запускается
+
+Скорее всего, нужно установить [Visual C++ Redistributables / Распространяемые компоненты Visual C++](https://learn.microsoft.com/ru-ru/cpp/windows/latest-supported-vc-redist?view=msvc-170) и [драйверы для айтрекеров Tobii](https://gaming.tobii.com/getstarted/#tobii). Также проверьте, чтобы был установлен [.NET Framework 4.8.1](https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net481-rus).
 
 ## Зачем это и что изменилось
 
